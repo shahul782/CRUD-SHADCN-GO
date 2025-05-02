@@ -2,14 +2,13 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button"; 
-import { Card, CardContent } from "@/components/ui/card"; 
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import { Form } from "@/components/ui/form";
 
-const page = () => {
+const Page = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [message, setMessage] = useState("");
   const router = useRouter();
@@ -33,10 +32,10 @@ const page = () => {
       const data = await response.json();
 
       if (response.ok) {
-        setMessage(data.message || "✅ register successful!");
+        setMessage(data.message || "✅ Registered successfully!");
         router.push("/curd");
       } else {
-        setMessage(data.message || "❌ Invalid credentials.");
+        setMessage(data.message || "❌ Invalid input.");
       }
     } catch (error) {
       console.error(error);
@@ -56,10 +55,11 @@ const page = () => {
       }}
     >
       <Card className="max-w-md w-full shadow-lg rounded-xl p-6">
-        <Form
-         onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <CardContent>
-            <h2 className="text-2xl text-center font-semibold mb-4">Register</h2>
+            <h2 className="text-2xl text-center font-semibold mb-4">
+              Register
+            </h2>
 
             <div className="mb-4">
               <Label htmlFor="username">Username</Label>
@@ -94,9 +94,7 @@ const page = () => {
             {message && (
               <p
                 className={`mt-2 text-center ${
-                  message.includes("success")
-                    ? "text-green-500"
-                    : "text-red-500"
+                  message.includes("success") ? "text-green-500" : "text-red-500"
                 }`}
               >
                 {message}
@@ -105,20 +103,17 @@ const page = () => {
 
             <div className="mt-4 text-center">
               <p>
-               Already have an account ?{" "}
-                <Link
-                  href="/login"
-                  className="text-blue-600 hover:underline"
-                >
+                Already have an account?{" "}
+                <Link href="/login" className="text-blue-600 hover:underline">
                   Login
                 </Link>
               </p>
             </div>
           </CardContent>
-        </Form>
+        </form>
       </Card>
     </div>
   );
 };
 
-export default page;
+export default Page;

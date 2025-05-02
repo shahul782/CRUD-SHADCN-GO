@@ -7,7 +7,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import { Form } from "@/components/ui/form";
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -56,7 +55,7 @@ const Login = () => {
       }}
     >
       <Card className="max-w-md w-full shadow-lg rounded-xl p-6">
-        <Form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <CardContent>
             <h2 className="text-2xl text-center font-semibold mb-4">Login</h2>
 
@@ -111,7 +110,7 @@ const Login = () => {
               </p>
             </div>
           </CardContent>
-        </Form>
+        </form>
       </Card>
     </div>
   );

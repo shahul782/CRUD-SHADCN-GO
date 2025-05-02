@@ -135,7 +135,7 @@ const Page = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto py-10 space-y-8 md:px-5 sm:px-2">
+    <div className="max-w-4xl mx-auto py-10 space-y-8 md:px-5 px-2">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-semibold">User Management</h1>
         <Button variant="secondary" onClick={() => router.push("/")}>
